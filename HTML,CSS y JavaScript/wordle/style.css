@@ -1,0 +1,82 @@
+body{
+    background-color: #131416;
+    color: white;
+}
+main,
+.juega{
+    padding: 0 20% ;
+}
+.juega{
+    text-align: center;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+}
+
+h1{
+    text-align: center;
+}
+.tarjeta{
+    border: solid 1px rgb(178 178 178 /0.2);
+    border-radius: 10px;
+    padding: 5px 10px;
+    display: flex;
+    gap: 10px;
+}
+.tarjeta p{
+    width: 70%;
+}
+.casilla{
+    font-size: 40px;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 62px;
+    height: 62px;
+    border-radius: 5px;
+}
+.interactiva{
+    width: 50px;
+    height: 50px;
+    border: solid 1px ;
+    font-size: 25px;
+}
+.indicaciones{
+    display: flex;
+    flex-direction: column;
+    gap: 10px ;
+}
+button{
+    background-color: #43a047;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    padding: 5px 10px;
+    border: 0;
+    box-shadow: 0 2px 5px 2px green;
+}
+.btn{
+    width: 10%;
+    border: 0 auto;
+    align-self: center;
+}
+#contenedor{
+    margin-top: 30px;  
+    margin-bottom: 30px;  
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.intentos{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 0 auto;
+}
+.ocultar{
+    display: none;
+}
+.correcto{background-color: #43a047;}
+.existe{background-color: #e4a81d;}
+.incorrecto{background-color: #757575;}

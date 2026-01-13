@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mi wordle</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+
+        <h1>Hola , esta es mi version de wordle :D</h1>
+        <h2>proposito:</h2>
+        <p>adivina la palabra oculta en 6 intentos.</p>
+        <div class="indicaciones">
+          <div class="tarjeta">
+            <div class="casilla correcto">O</div>
+    
+            <p>
+              VERDE significa que la letra está en la palabra y en la posición
+              CORRECTA.
+            </p>
+          </div>
+          <div class="tarjeta ">
+            <div class="casilla existe">L</div>
+            <p>
+              AMARILLO significa que la letra letra está presente en la palabra pero
+              en la posición INCORRECTA.
+            </p>
+          </div>
+          <div class="tarjeta ">
+            <div class="casilla incorrecto">A</div>
+            <p>GRIS significa que la letra letra NO está presente en la palabra.</p>
+          </div>
+        </div>
+        <p>
+          Después de cada intento el color de las casillas cambia para mostrar qué
+          tan cerca estás de acertar la palabra
+        </p>
+        <button id="btn">jugar</button>
+
+        
+    </main>
+    <div id="contenedor">
+        <!-- serà mi contenedor dinamico -->
+    </div>
+    <form action="#" id="juega" class=" juega ocultar">
+        <label for="ingresado">encuentra la palabra... <input type="text" placeholder="adivina..." id="ingresado" required></label>
+        <button type="submit" class="btn" >probar</button>
+    </form>
+    
+    <script src="index.js"></script>
+  </body>
+</html>
