@@ -8,47 +8,81 @@
   </head>
   <body>
     <main>
+      <h1>Hola , esta es mi version de wordle :D</h1>
+      <h2>proposito:</h2>
+      <p>adivina la palabra oculta en 6 intentos.</p>
+      <div class="indicaciones">
+        <div class="tarjeta">
+          <div class="casilla" style="background-color: #43a047">O</div>
 
-        <h1>Hola , esta es mi version de wordle :D</h1>
-        <h2>proposito:</h2>
-        <p>adivina la palabra oculta en 6 intentos.</p>
-        <div class="indicaciones">
-          <div class="tarjeta">
-            <div class="casilla correcto">O</div>
-    
-            <p>
-              VERDE significa que la letra está en la palabra y en la posición
-              CORRECTA.
-            </p>
-          </div>
-          <div class="tarjeta ">
-            <div class="casilla existe">L</div>
-            <p>
-              AMARILLO significa que la letra letra está presente en la palabra pero
-              en la posición INCORRECTA.
-            </p>
-          </div>
-          <div class="tarjeta ">
-            <div class="casilla incorrecto">A</div>
-            <p>GRIS significa que la letra letra NO está presente en la palabra.</p>
-          </div>
+          <p>
+            VERDE significa que la letra está en la palabra y en la posición
+            CORRECTA.
+          </p>
         </div>
-        <p>
-          Después de cada intento el color de las casillas cambia para mostrar qué
-          tan cerca estás de acertar la palabra
-        </p>
-        <button id="btn">jugar</button>
-
-        
+        <div class="tarjeta">
+          <div class="casilla" style="background-color: #e4a81d">L</div>
+          <p>
+            AMARILLO significa que la letra letra está presente en la palabra
+            pero en la posición INCORRECTA.
+          </p>
+        </div>
+        <div class="tarjeta">
+          <div class="casilla" style="background-color: #757575">A</div>
+          <p>
+            GRIS significa que la letra letra NO está presente en la palabra.
+          </p>
+        </div>
+      </div>
+      <p>
+        Después de cada intento el color de las casillas cambia para mostrar qué
+        tan cerca estás de acertar la palabra
+      </p>
+      <button id="btn" class="btn">jugar</button>
     </main>
     <div id="contenedor">
-        <!-- serà mi contenedor dinamico -->
+      <!-- serà mi contenedor dinamico -->
     </div>
-    <form action="#" id="juega" class=" juega ocultar">
+
+    <div class="teclado ocultar" id="teclado">
+      <button class="tecla">Q</button>
+      <button class="tecla">W</button>
+      <button class="tecla">E</button>
+      <button class="tecla">R</button>
+      <button class="tecla">T</button>
+      <button class="tecla">Y</button>
+      <button class="tecla">U</button>
+      <button class="tecla">I</button>
+      <button class="tecla">O</button>
+      <button class="tecla">P</button>
+
+      <button class="tecla">A</button>
+      <button class="tecla">S</button>
+      <button class="tecla">D</button>
+      <button class="tecla">F</button>
+      <button class="tecla">G</button>
+      <button class="tecla">H</button>
+      <button class="tecla">J</button>
+      <button class="tecla">K</button>
+      <button class="tecla">L</button>
+      <button class="tecla">Ñ</button>
+      <button class="tecla" id="enter">↵</button>
+      <button class="tecla">Z</button>
+      <button class="tecla">X</button>
+      <button class="tecla">C</button>
+      <button class="tecla">V</button>
+      <button class="tecla">B</button>
+      <button class="tecla">N</button>
+      <button class="tecla">M</button>
+      <button class="tecla" id="borrar">⌫</button>
+    </div>
+    <div id="toast" class="toast">No hay suficientes letras</div>
+
+    <!-- <form action="#" id="juega" class=" juega ocultar">
         <label for="ingresado">encuentra la palabra... <input type="text" placeholder="adivina..." id="ingresado" required></label>
         <button type="submit" class="btn" >probar</button>
-    </form>
-    
+    </form> -->
+
     <script src="index.js"></script>
   </body>
 </html>

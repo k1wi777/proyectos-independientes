@@ -1,3 +1,8 @@
+/* variables CSS */
+:root{
+    --color-tarjet :#757575;
+    --delay :2s;
+}
 body{
     background-color: #131416;
     color: white;
@@ -36,18 +41,45 @@ h1{
     height: 62px;
     border-radius: 5px;
 }
+.tecla{
+    padding: 0 12px;
+    font-size: 14px;
+    height: 56px;
+    border: 0;
+    background-color: #3f4752;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+}
+.tecla:hover{
+    cursor: pointer;
+    background-color: #5e6a7b;
+}
+.teclado {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 10px;
+  max-width: 70%;
+  margin: auto;
+  
+}
+.teclado button:nth-child(21){
+  grid-column: span 2;
+}
+
 .interactiva{
     width: 50px;
     height: 50px;
-    border: solid 1px ;
+    border: solid 2px #424242 ;
     font-size: 25px;
+    transition: border 100ms;
 }
 .indicaciones{
     display: flex;
     flex-direction: column;
     gap: 10px ;
 }
-button{
+.btn{
     background-color: #43a047;
     border-radius: 5px;
     font-size: 16px;
@@ -56,11 +88,7 @@ button{
     border: 0;
     box-shadow: 0 2px 5px 2px green;
 }
-.btn{
-    width: 10%;
-    border: 0 auto;
-    align-self: center;
-}
+
 #contenedor{
     margin-top: 30px;  
     margin-bottom: 30px;  
@@ -77,6 +105,86 @@ button{
 .ocultar{
     display: none;
 }
-.correcto{background-color: #43a047;}
-.existe{background-color: #e4a81d;}
-.incorrecto{background-color: #757575;}
+.resaltar{
+    border: solid 2px #90caf9;
+}
+.prueba{
+    animation: pop 200ms;
+}
+.tiembla{
+    animation: temblar 300ms 2 ;
+}
+
+.correcto{ --color-tarjet :#43a047;animation: rotar 250ms forwards }
+.existe{ --color-tarjet :#e4a81d; animation: rotar 250ms forwards;}
+.incorrecto{animation: rotar 250ms forwards ;}
+
+
+/* animaciones */
+@keyframes rotar {
+    0%{
+        transform: scaleY(1);
+        
+    }
+    50%{
+        transform: scaleY(0);
+       background-color: #131416;
+    }
+    100%{
+        transform: scaleY(1);
+        background-color: var(--color-tarjet);
+    }
+}
+@keyframes pop {
+    0%{
+        transform: scale(0.7);
+    }
+    75%{
+        transform: scale(1.1);
+    }
+
+}
+@keyframes temblar{
+    0%{
+        transform: translateX(0%);
+    }
+    25%{
+        transform: translateX(-1%);
+    }
+    50%{
+        transform: translateX(1%);
+    }
+    75%{
+        transform: translateX(-1%);
+    }
+    100%{
+        transform: translateX(0);
+    }
+}
+
+/* modal */
+.toast {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(-30px);
+  
+  background: #1e1e1e;
+  color: white;
+  width: 40%;
+  text-align: center;
+  padding: 34px 0;
+  border-radius: 10px;
+  font-size: 14px;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 1000;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
