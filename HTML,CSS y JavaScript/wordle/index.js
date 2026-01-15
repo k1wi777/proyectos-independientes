@@ -6,11 +6,18 @@ const palabras = [
   "diablo",
   "detone",
   "albaricoque",
+  "perro",
+  "casa",
+  "libro",
+  "física",
+  "química",
 ];
 
 let contenedor = document.querySelector("#contenedor");
 let btn = document.querySelector("#btn");
 let teclado = document.querySelector("#teclado");
+let panel = document.querySelector('#divjuego');
+let toast = document.getElementById("toast");
 // let form = document.querySelector("#juega");
 let palabraSecreta = "";
 let jugadas = 0;
@@ -27,6 +34,8 @@ function escogerPalabra() {
 function crearJuego() {
   jugadas = 0;
   escrito = "";
+  document.querySelector('main').classList.toggle('ocultar');
+  panel.classList.toggle('ocultar');
   for (let index = 0; index < 6; index++) {
     const div = document.createElement("div");
     div.className = "intentos";
@@ -68,7 +77,7 @@ function animarSiguiete(elemento, ingresada, index) {
   elemento.classList.add(nuevaClase);
   elemento.textContent = ingresada[index];
 
-  let t = teclado.firstElementChild;
+  let t = teclado.firstElementChild.firstElementChild;
   let valor = "";
   for (let i = 0; i < 28; i++) {
     valor = t.textContent.toLowerCase();
@@ -76,7 +85,8 @@ function animarSiguiete(elemento, ingresada, index) {
       asigna(t, nuevaClase);
       break;
     }
-    t = t.nextElementSibling;
+    // console.log(t.nextElementSibling);
+    t = t.nextElementSibling=== null ?t.parentElement.nextElementSibling.firstElementChild:t.nextElementSibling;
   }
   //esperamos a que termine la animacion
   elemento.addEventListener(
@@ -134,29 +144,28 @@ function escribir(tecla, fuente) {
 function avanzar(instruccion) {
   // console.log(`llevas ${jugadas} jugadas`);
   if (jugadas > 5 && instruccion) {
-    let mensaje = document.createElement("div");
-    mensaje.innerHTML = `<div style="text-align: center;">
-        <h2>se te han acabado los intentos :C</h2>
-        <p>la palabra secreta era :</p>
-        <h3 style="font-size: 20px;">${palabraSecreta}</h3>
-        </div>`;
-    contenedor.appendChild(mensaje);
+    mostrarModal(palabraSecreta);
+    setTimeout(() => {
+        panel.classList.toggle("ocultar");
+      }, 3000);//ocultar toda la interfaz
     correr = false;
   } else if (instruccion) {
-    // console.log("avanzando");
-    // jugadas++;
     escrito = "";
     listJugadas[jugadas].firstElementChild.classList.toggle("resaltar");
   } else {
-    let mensaje = document.createElement("div");
-    mensaje.innerHTML = ` <div style="text-align: center;">
-            <h2>¡¡HAZ ADIVINADO LA PALABRA!! EXCELENTEE</h2>
-            <p>tu palabra era :</p>
-            <h2><strong>${palabraSecreta}</strong></h2>
-            </div>`;
-    contenedor.appendChild(mensaje);
+    mostrarModal('¡espléndido!');
+    setTimeout(() => {
+        panel.classList.toggle("ocultar");
+      }, 3000);//ocultar toda la intefaz
     correr = false;
   }
+}
+function mostrarModal(mensaje){
+      toast.classList.add("show");
+      toast.textContent =mensaje;
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 2500);
 }
 function enter() {
   if (correr) {
@@ -165,21 +174,17 @@ function enter() {
     } else {
       // console.log("invalido");
       // console.log(listJugadas[jugadas]);
-      listJugadas[jugadas].classList.toggle("tiembla");
+      listJugadas[jugadas].classList.add("tiembla");
+      //mostrar la modal 
+      mostrarModal('No hay suficientes letras');
+      //colocar animacion
       listJugadas[jugadas].addEventListener(
         "animationend",
         () => {
-          listJugadas[jugadas].classList.toggle("tiembla");
+          listJugadas[jugadas].classList.remove("tiembla");
         },
         { once: true }
       );
-      //mostrar la modal 
-      const toast = document.getElementById("toast");
-      toast.classList.add("show");
-      
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 2500);
     }
   }
 }
