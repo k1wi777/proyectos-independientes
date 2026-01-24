@@ -1,0 +1,11 @@
+#sectionConcepts{
+  background-color: #140524;
+  padding: 10px 10px;
+  text-align: center;
+}
+#sectionConcepts .div{
+  padding-top: 10px;
+  display: flex;
+  justify-content: space-evenly;
+
+}

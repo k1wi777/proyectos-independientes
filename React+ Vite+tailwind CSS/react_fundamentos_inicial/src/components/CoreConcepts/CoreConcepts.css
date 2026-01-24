@@ -1,0 +1,24 @@
+#coreConcepts #card{
+  width: 20%;
+  padding: 15px 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: #1b082f;
+  border-radius: 10px;
+  
+}
+#coreConcepts  img{
+  width: 40%;
+  margin: 0 auto;
+}
+#coreConcepts  p{
+  text-align: start;
+  padding: 0 10%;
+}
+#coreConcepts  h3{
+  font-size: 24px;
+  background: linear-gradient(40deg, #3b5486, #03d5ff, #3b5486, #03d5ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+}
